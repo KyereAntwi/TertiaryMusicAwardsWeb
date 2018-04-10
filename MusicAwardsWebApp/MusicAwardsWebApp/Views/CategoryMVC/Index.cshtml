@@ -1,0 +1,62 @@
+﻿@model CategoryIndexViewModel
+
+<div class="row">
+    <div class="col-lg-4">
+        @Html.Partial("CategoryPatialView", Model.Vm)
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">List of Award Categories <span class="badge pull-right">Total number of categories: @Model.AwardCategories.Count()</span></div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Award Category</td>
+                            <td>Description</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var cat in Model.AwardCategories)
+                        {
+                            <tr>
+                                <td>@cat.Id</td>
+                                <td>@cat.Category</td>
+                                <td>@cat.Description</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" id="operations" data-toggle="dropdown">
+                                            Operations
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="operations">
+                                            <li role="presentation">
+                                                <a href="@Url.Action("AddNominees", "CategoryMVC", new { cat.Id })" role="menuitem" tabindex="-1">Add Nominees</a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="@Url.Action("Result", "CategoryMVC", new { cat.Id })" role="menuitem" tabindex="-1">View Result</a>
+                                            </li>
+                                            <li role="presentation" class="divider"></li>
+                                            <li role="presentation">
+                                                <a href="" role="menuitem" tabindex="-1">Edit</a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="@Url.Action("Delete", "CategoryMVC", new { cat.Id })" role="menuitem" tabindex="-1">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

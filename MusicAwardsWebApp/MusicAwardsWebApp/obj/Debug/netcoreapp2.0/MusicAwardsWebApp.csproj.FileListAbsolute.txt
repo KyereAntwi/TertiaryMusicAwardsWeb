@@ -1,0 +1,11 @@
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\bin\Debug\netcoreapp2.0\MusicAwardsWebApp.deps.json
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\bin\Debug\netcoreapp2.0\MusicAwardsWebApp.runtimeconfig.json
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\bin\Debug\netcoreapp2.0\MusicAwardsWebApp.runtimeconfig.dev.json
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\bin\Debug\netcoreapp2.0\MusicAwardsWebApp.dll
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\bin\Debug\netcoreapp2.0\MusicAwardsWebApp.pdb
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.csproj.CoreCompileInputs.cache
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.AssemblyInfoInputs.cache
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.AssemblyInfo.cs
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.dll
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.pdb
+C:\Users\J. Kyere Antwi\source\repos\MusicAwardsWebApp\MusicAwardsWebApp\obj\Debug\netcoreapp2.0\MusicAwardsWebApp.csprojResolveAssemblyReference.cache

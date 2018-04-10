@@ -1,0 +1,48 @@
+﻿@model Gallery
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true"></span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Upload Images</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddNew", "GalleryMVC", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(m => m.Id)
+                    @foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        switch (property.PropertyName)
+                        {
+                            case "Id":
+                            case "ImageData":
+                            case "ImageMime":
+                                break;
+                            default:
+                                <div class="form-group">
+                                    <label>@(property.DisplayName ?? property.PropertyName)</label>
+                                    @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                                    @Html.ValidationMessage(property.PropertyName)
+                                </div>
+                            break;
+                        }
+
+                     }
+
+                    <div class="form-group">
+                        <p>Upload Files from here!</p>
+                        <input type="file" name="Images" multiple />
+                    </div>
+                    <input type="submit" value="Save" class="btn btn-block btn-primary" />
+                 }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

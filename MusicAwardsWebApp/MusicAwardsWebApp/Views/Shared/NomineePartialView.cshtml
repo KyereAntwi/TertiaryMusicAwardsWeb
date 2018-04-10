@@ -1,0 +1,32 @@
+﻿@model AddNewNomineeViewModel
+
+<h4>Add New</h4>
+<div class="well-lg" style="margin-top:10px; background-color:ghostwhite; color:black">
+    @using (Html.BeginForm("AddNew", "NomineesMVC", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+            switch (property.PropertyName)
+            {
+                case "Id":
+                case "ImageData":
+                case "ImageMime":
+                    break;
+                default:
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                    break;
+            }
+
+        }
+
+        <div class="form-group">
+            <p>Upload Nominee profile photo</p>
+            <input type="file" name="image" />
+        </div>
+        <input type="submit" value="Save" class="btn btn-block btn-primary" />
+    }
+</div>

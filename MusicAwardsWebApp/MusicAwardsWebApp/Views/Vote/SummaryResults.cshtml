@@ -1,0 +1,12 @@
+﻿@model SummaryResultsViewModel
+
+<div class="row">
+    <h3>Total Votes Casted <span class="badge" style="font-size:50px;">@Model.TotalVotes</span></h3>
+</div>
+
+<div class="row">
+    @foreach (var category in Model.Categories)
+    {
+        Html.RenderPartial("SummaryPartialView", category);
+    }
+</div>

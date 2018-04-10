@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Gallery>
+
+<div class="row">
+    <p><a class="btn btn-info pull-right" style="margin-top:15px;" data-toggle="modal" data-target="#myModal" href="">Add Images to Gallery</a></p>
+</div>
+<hr/>
+<div class="row">
+    @foreach (var image in Model)
+    {
+        <div>
+            <a href="@Url.Action("Delete", "GalleryMVC", new { id = image.Id })">
+                <img class="img-responsive img-thumbnail pull-left" style="width:270px; height:150px"
+                     src="@Url.Action("GetImage", "GalleryMVC", new { id = image.Id })" />
+            </a>
+        </div>
+    }
+</div>
+
+@{ var gallery = new Gallery();}
+@Html.Partial("_GalleryPartial", gallery)

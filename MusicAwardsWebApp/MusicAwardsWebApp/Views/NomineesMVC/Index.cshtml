@@ -1,0 +1,59 @@
+﻿@model NomineesIndexViewModelcs
+
+<div class="row">
+    <div class="col-lg-3">
+        @Html.Partial("NomineePartialView", Model.AddNominee)
+    </div>
+
+    <div class="col-lg-9">
+        <div class="panel panel-primary" style="margin-top:40px;">
+            <div class="panel-heading">
+                <div class="panel-title">List of Nominees<span class="pull-right">Total Registered: <p class="badge">@Model.AllNominees.Count()</p></span></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <td>Photo</td>
+                            <td>Stage Name</td>
+                            <td>School</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var nominee in Model.AllNominees)
+                        {
+                            <tr>
+                                <td>
+                                    <img class="img-circle img-responsive" width="50" height="50"
+                                         src="@Url.Action("GetImage", "NomineesMVC", new { nominee.Id })" />
+                                </td>
+                                <td>@nominee.StageName</td>
+                                <td>@nominee.School</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" id="operations" data-toggle="dropdown">
+                                            Operations
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="operations">
+                                            <li role="presentation">
+                                                <a href="" role="menuitem" tabindex="-1">Edit</a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="@Url.Action("Details", "NomineesMVC", new { id = nominee.Id })" role="menuitem" tabindex="-1">Details</a>
+                                            </li>
+                                            <li role="presentation" class="divider"></li>
+                                            <li role="presentation">
+                                                <a href="@Url.Action("Delete", "NomineesMVC", new { id = nominee.Id })" role="menuitem" tabindex="-1">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                         }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

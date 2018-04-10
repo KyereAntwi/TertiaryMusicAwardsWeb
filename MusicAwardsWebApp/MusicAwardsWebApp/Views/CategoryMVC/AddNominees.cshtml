@@ -1,0 +1,49 @@
+﻿@model AddNomineesToCategoryViewModel
+
+<div class="row">
+    <h3>@Model.Category.Category</h3>
+    <p>@Model.Category.Description</p>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-lg-6">
+        <p>All Nominees List</p>
+        <table class="table table-condensed table-responsive table-striped">
+            <tbody>
+                @foreach (var nominee in Model.Nominees)
+                {
+                    <tr>
+                        <td>
+                            <img class="img-circle img-responsive" width="50" height="50"
+                                 src="@Url.Action("GetImage", "NomineesMVC", new { nominee.Id })" />
+                        </td>
+                        <td>@nominee.StageName</td>
+                        <td><p><a href="@Url.Action("AddFinal", "CategoryMVC", new { catId = Model.Category.Id, nomId = nominee.Id})" class="btn btn-primary">ADD</a></p></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-6">
+        <p>Nomnees Added To Category</p>
+        <table class="table table-responsive table-striped table-condensed">
+            <tbody>
+                @foreach (var nominee in Model.CatNominees)
+                {
+                    <tr>
+                        <td>
+                            <img class="img-circle img-responsive" width="50" height="50"
+                                 src="@Url.Action("GetImage", "NomineesMVC", new { nominee.Id })" />
+                        </td>
+                        <td>@nominee.StageName</td>
+                        <td><p><a href="@Url.Action("Remove", "CategoryMVC", new { catId = Model.Category.Id, nomId = nominee.Id})" class="btn btn-danger">REMOVE</a></p></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a href="@Url.Action("Index", "CategoryMVC")">Return back to Category List</a></p>

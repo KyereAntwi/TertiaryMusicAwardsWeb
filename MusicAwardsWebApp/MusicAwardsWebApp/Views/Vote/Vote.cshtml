@@ -1,0 +1,34 @@
+﻿@model VoteOnCategoryViewModel
+
+<div class="row">
+    <h3>@Model.Category.Category</h3>
+    <p>@Model.Category.Description</p>
+    <p>Click on vote to vote for Nominee</p>
+</div>
+
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Nominees List<span class="pull-right">Total: <p class="badge">@Model.Nominees.Count()</p></span></div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed table-hover table-striped">
+                <tbody>
+                    @foreach (var nominee in Model.Nominees)
+                    {
+                    <tr>
+                        <td>
+                            <img class="img-circle img-responsive" width="50" height="50"
+                                 src="@Url.Action("GetImage", "NomineesMVC", new { nominee.Id })" />
+                        </td>
+                        <td>@nominee.StageName</td>
+                        <td>@nominee.School</td>
+                        <td>@nominee.Gender</td>
+                        <td><p><a href="@Url.Action("FinalVote", "CategoryMVC", new { catId = Model.Category.Id, nomId = nominee.Id })" class="btn btn-primary">VOTE</a></p></td>
+                    </tr>
+                     }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

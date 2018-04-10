@@ -1,0 +1,21 @@
+﻿@model  IEnumerable<AwardCategory>
+
+<div class="row">
+    <div class="panel panel-info" style="margin-top:15px;">
+        <div class="panel-heading">
+            <div class="panel-title">Perform voting on Category by clicking VOTE</div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed table-hover table-responsive">
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.Category</td>
+                        <td>@category.Description</td>
+                        <td><p><a href="@Url.Action("Vote", "Vote", new { catId = category.Id })" class="btn btn-primary">VOTE</a></p></td>
+                    </tr>
+                 }
+            </table>
+        </div>
+    </div>
+</div>

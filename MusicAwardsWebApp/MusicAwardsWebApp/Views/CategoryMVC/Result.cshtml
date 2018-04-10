@@ -1,0 +1,40 @@
+﻿@model CategoryResultViewModel
+
+<div class="row">
+    <h4><strong class="text-info">@Model.Category Results Page</strong></h4>
+    <p>@Model.Description</p>
+    <p><a href="@Url.Action("SummaryResults", "Vote")" class="btn btn-info pull-right">VIEW SUMMARY RESULTS</a></p>
+</div>
+
+<hr/>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title"><span>Nominees List</span><span class="pull-right">Number of Nominees: <span class="badge">@Model.votes.Keys.Count()</span></span></div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive table-hover table-condensed table-condensed">
+            <thead>
+                <tr>
+                    <td>Nominee Stagename</td>
+                    <td>Number of Votes</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var nominee in Model.votes.Keys)
+                {
+                    foreach (var vote in Model.votes.Values)
+                    {
+                        <tr>
+                            <td>@nominee.StageName</td>
+                            <td class="badge">@vote</td>
+                            <td><a href="#" class="label-info">Remove from Category</a></td>
+                        </tr>
+                     }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a href="@Url.Action("Index","CategoryMVC")">Go back to category list</a></p>
